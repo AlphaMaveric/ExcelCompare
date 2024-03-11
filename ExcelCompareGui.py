@@ -24,12 +24,10 @@ def compare_files():
         try:
             df1 = pd.read_excel(file1_path)
             df2 = pd.read_excel(file2_path)
-
-            # Convert column names to lowercase and trim extra spaces
+        
             df1.columns = df1.columns.str.strip()
             df2.columns = df2.columns.str.strip()
-
-            # Check if the specified field exists in both DataFrames
+           
             if field_name not in df1.columns or field_name not in df2.columns:
                 messagebox.showerror("Error", f"Field '{field_name}' does not exist in one or both Excel files.")
                 return
